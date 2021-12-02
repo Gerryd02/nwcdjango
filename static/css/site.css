@@ -1,0 +1,30 @@
+body {
+    color: #222;
+    margin: 0px;
+    padding: 0px;
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+
+}
+
+input {
+    width: 20px;
+}
+
+div {
+    background-color: grey;
+}
+footer {
+    margin-top: 50px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+footer a {
+    color: #2495f2;
+}
+
+.container {
+    alignment: left;
+}

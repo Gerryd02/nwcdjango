@@ -1,0 +1,22 @@
+{% extends 'shared/_layout.html' %}
+
+{% block main-content %}
+    <form action="post" class="player-info">
+        <div>
+        {% include 'player_info/player.html' %}
+        </div>
+        {% include 'player_info/weapon_level.html' %}
+
+        {% include 'player_info/gathering.html' %}
+
+        {% include 'player_info/refining.html' %}
+
+        {% include 'player_info/crafting.html' %}
+        <br>
+        <button class="player-info">Save</button>
+    </form>
+{% endblock %}
+
+{% block additional_css %}
+
+{% endblock %}
