@@ -1,0 +1,17 @@
+
+
+{% block company %}
+    <div class="main-content">
+        <form action="post" class="company_form">
+            <label for="txtCompanyName" class="company-info" id="lblCompanyName">Company Name: </label>
+            <input type="text" name="txtCompanyName" id="txtCompanyName" class="company-info">
+
+            <label for="txtCompanyFaction" class="company-info" id="lblCompanyFaction">Company Faction: </label>
+            <input type="text" name="txtCompanyFaction" id="txtCompanyFaction" class="company-info">
+
+            <label for="txtCompanyServer" class="company-info" id="lblCompanyServer">Company Server: </label>
+            <input type="text" name="txtCompanyServer" id="txtCompanyServer" class="company-info">
+        </form>
+        <button class="company-info" id="btnCompanyAdd"> Add Company </button>
+    </div>
+{% endblock %}

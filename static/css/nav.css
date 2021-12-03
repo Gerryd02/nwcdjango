@@ -2,6 +2,7 @@
 .navbar {
     border-radius: 0px;
     padding-bottom: 10px;
+    background-color: blue;
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {

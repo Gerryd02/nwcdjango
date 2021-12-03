@@ -15,15 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from views import views
 
 urlpatterns = [
     path('', views.IndexView.as_view()),
-    path('weapon_level.html', views.WeaponLevel.as_view(), name="weapons"),
-    path('crafting.html', views.Crafting.as_view(), name="crafting"),
-    path('player.html', views.Player.as_view(), name="player"),
-    path('refining.html', views.Refining.as_view(), name="refining"),
-    path('gathering.html', views.Gathering.as_view(), name="gathering"),
-    path('player_card.html', views.PlayerCard.as_view(), name="player_card")
+    path('player_card.html', views.PlayerCard.as_view(), name="player_card"),
+    path('company.html', views.Company.as_view(), name="company"),
+    path('territories.html', views.Territories.as_view(), name="territories")
 ]
+urlpatterns += staticfiles_urlpatterns()

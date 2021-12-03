@@ -10,36 +10,19 @@ class IndexView(View):
         return render(request, "index.html")
 
 
-class Player(View):
-
-    def get(self, request, *args, **kwargs):
-        return render(request, "shared/player_data/../templates/shared/player.html")
-
-
-class WeaponLevel(View):
-
-    def get(self, request, *args, **kwargs):
-        return render(request, "shared/player_data/../templates/shared/weapon_level.html")
-
-
-class Crafting(View):
-
-    def get(self, request, *args, **kwargs):
-        return render(request, "shared/player_data/../templates/shared/crafting.html")
-
-
-class Gathering(View):
-
-    def get(self, request, *args, **kwargs):
-        return render(request, "shared/player_data/../templates/shared/gathering.html")
-
-
-class Refining(View):
-
-    def get(self, request, *args, **kwargs):
-        return render(request, "shared/player_data/../templates/shared/refining.html")
-
 class PlayerCard(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, "player_card.html")
+
+
+class Company(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, "company_summary.html")
+
+
+class Territories(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, "territories.html")

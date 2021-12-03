@@ -1,20 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}New World Company Steward>{% endblock %}</title>
+    <title>{% block title %}New World Company Steward{% endblock %}</title>
 
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic,700,700italic|Source+Code+Pro:500">
-
-    <link rel="stylesheet" href="/static/css/site.css"/>
-    <link rel="stylesheet" href="/static/css/nav.css"/>
-    {% block additional_css %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css' %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'css/site.css' %}" type="text/css" />
+    {% block additional_css %}   {% endblock %}
     </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/company.html"> Company </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/player_card.html"> Player </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/territories.html" tabindex="-1" aria-disabled="true">Territories</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div>
     <h1 class="main-header">New World Company Steward</h1>
-    <a href="player_card.html">player</a>
 </div>
 
 <div class="main-content">
@@ -23,5 +43,7 @@
 {% endblock %}
 
 </div>
+<script src="{% static "/js/bootstrap.min.js" %}"></script>
+
 </body>
 </html>

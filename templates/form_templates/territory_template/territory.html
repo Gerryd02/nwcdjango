@@ -1,0 +1,21 @@
+{% block territory %}
+
+    <form action="post" class="territory-info">
+        <h2>
+            <label for="txtTerritoryName" class="territory-info" id="lblTerritoryName">
+            <input type="text" name="txtTerritoryInfo" id="txtTerritoryInfo" class="territory-info">
+            </label>
+        </h2>
+
+        <label for="selFaction" class="territory-info" id="txtTerritoryFaction"> Faction: </label>
+
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option> -- select faction --</option>
+            <option> Covenant </option>
+            <option> Marauders </option>
+            <option> Syndicate </option>
+        </select>
+
+    </form>
+{% endblock %}

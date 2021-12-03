@@ -3,15 +3,15 @@
 {% block main-content %}
     <form action="post" class="player-info">
         <div>
-        {% include 'player_info/player.html' %}
+        {% include 'form_templates/player_templates/player.html' %}
         </div>
-        {% include 'player_info/weapon_level.html' %}
+        {% include 'form_templates/player_templates/weapon_level.html' %}
 
-        {% include 'player_info/gathering.html' %}
+        {% include 'form_templates/player_templates/gathering.html' %}
 
-        {% include 'player_info/refining.html' %}
+        {% include 'form_templates/player_templates/refining.html' %}
 
-        {% include 'player_info/crafting.html' %}
+        {% include 'form_templates/player_templates/crafting.html' %}
         <br>
         <button class="player-info">Save</button>
     </form>
