@@ -1,3 +1,12 @@
 input {
     width: 50px;
 }
+
+label  {
+  color: rebeccapurple;
+}
+
+.player div {
+    background-color: slategray;
+
+}

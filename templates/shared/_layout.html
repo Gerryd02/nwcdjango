@@ -6,9 +6,9 @@
     <title>{% block title %}New World Company Steward{% endblock %}</title>
 
     <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css' %}" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="{% static 'css/site.css' %}" type="text/css" />
-    {% block additional_css %}   {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'css/site.css' %}" type="text/css" media="screen" />
+    {% block additional_css %}   <link rel="stylesheet" href="{% static 'css/site.css' %}" type="text/css" media="screen" />{% endblock %}
     </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

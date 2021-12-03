@@ -2,17 +2,27 @@
 
 {% block main-content %}
     <form action="post" class="player-info">
-        <div>
-        {% include 'form_templates/player_templates/player.html' %}
+    <div class="player">
+        <div class="section">
+            {% include 'form_templates/player_templates/player.html' %}
         </div>
-        {% include 'form_templates/player_templates/weapon_level.html' %}
 
-        {% include 'form_templates/player_templates/gathering.html' %}
+        <div class="section">
+            {% include 'form_templates/player_templates/weapon_level.html' %}
+        </div>
 
-        {% include 'form_templates/player_templates/refining.html' %}
+        <div class="section">
+            {% include 'form_templates/player_templates/gathering.html' %}
+        </div>
 
-        {% include 'form_templates/player_templates/crafting.html' %}
-        <br>
+        <div class="section">
+            {% include 'form_templates/player_templates/refining.html' %}
+        </div>
+
+        <div class="section">
+            {% include 'form_templates/player_templates/crafting.html' %}
+        </div>
+    </div>
         <button class="player-info">Save</button>
     </form>
 {% endblock %}
