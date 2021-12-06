@@ -1,0 +1,37 @@
+{% extends 'shared/_layout.html' %}
+
+{% block main-content %}
+
+    <table class="table table-light">
+        <thead>
+        <tr>
+            <th scope="col"> ID </th>
+            <th scope="col"> Player Name </th>
+            <th scope="col"> Level </th>
+            <th scope="col"> Company </th>
+            <th scope="col"> Primary Role </th>
+            <th scope="col"> Secondary Role</th>
+            <th scope="col"> Avg. Watermark </th>
+        </tr>
+        </thead>
+        <tbody>
+         {% for player in roster  %}
+             <tr>
+                 <th scope="row">{{ forloop.counter }}</th>
+                 <td>{{ player.player_name }}</td>
+                 <td>{{ player.player_level }}</td>
+                 <td>{{ player.player_company_id_id }}</td>
+                 <td>Healer</td>
+                 <td>Bait</td>
+                 <td>500</td>
+             </tr>
+         {% endfor %}
+
+
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block additional_css %}
+
+{% endblock %}

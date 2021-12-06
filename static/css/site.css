@@ -67,3 +67,7 @@ label {
     background-color: grey;
     color:#212121;
 }
+
+.search-button {
+    width: 100px;
+}

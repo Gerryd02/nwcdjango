@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 # Create your models here.
-class Factions(models.Model):
+class Faction(models.Model):
     COVENANT = 'COV'
     MARAUDER = 'MAR'
     SYNDICATE = 'SYN'
@@ -20,7 +20,7 @@ class Factions(models.Model):
 class Company(models.Model):
     company_id = models.BigAutoField(primary_key=True)
     company_name = models.CharField(max_length=255)
-    faction = Factions.FACTION_CHOICES
+    faction = models.CharField(max_length=3, choices=Faction.FACTION_CHOICES, default=Faction.UNFACTIONED)
 
     def __str__(self):
         return f' id: {self.company_id}, company_name: {self.company_name}, faction: {self.faction} '
@@ -28,17 +28,17 @@ class Company(models.Model):
 
 class Player(models.Model):
     player_id = models.BigAutoField(primary_key=True)
-    player_name = models.CharField(max_length=255, null=False)
+    player_name = models.CharField(max_length=255, null=False, unique=True)
     player_level = models.IntegerField(null=False, default=1)
-    player_company_id = models.ForeignKey(Company, on_delete=SET(4))
-    player_faction = Factions.FACTION_CHOICES
+    player_company_id = models.ForeignKey(Company, on_delete=SET(1))
+    player_faction = models.CharField(max_length=3, choices=Faction.FACTION_CHOICES, default=Faction.UNFACTIONED)
 
     def __str__(self):
         return f' id: {self.player_id}, player_name: {self.player_name}, player_level {self.player_level}, ' \
                f'company_id: {self.player_company_id}, player_faction: {self.player_faction} '
 
 
-class Expertise(Player):
+class Expertise(models.Model):
     exp_sword = models.IntegerField(default=500)
     exp_shield = models.IntegerField(default=500)
     exp_rapier = models.IntegerField(default=500)
@@ -60,12 +60,11 @@ class Expertise(Player):
     exp_amulet = models.IntegerField(default=500)
     exp_ring = models.IntegerField(default=500)
     exp_earring = models.IntegerField(default=500)
-
-    def __str__(self):
-        return f' {[self.field for i in Expertise.field_names]}'
+    exp_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
 
 
-class Weapon(Player):
+
+class Weapon(models.Model):
     level_sword = models.IntegerField(default=1)
     level_shield = models.IntegerField(default=1)
     level_rapier = models.IntegerField(default=1)
@@ -79,35 +78,32 @@ class Weapon(Player):
     level_fire_staff = models.IntegerField(default=1)
     level_ice_gauntlet = models.IntegerField(default=1)
     level_void_gauntlet = models.IntegerField(default=1)
-
-    def __str__(self):
-        return f' {[self.field for i in Weapon.field_names]}'
+    weapon_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
 
 
-class Gathering(Player):
+
+
+class Gathering(models.Model):
     mining = models.IntegerField(default=0)
     harvesting = models.IntegerField(default=0)
     logging = models.IntegerField(default=0)
     skinning = models.IntegerField(default=0)
     fishing = models.IntegerField(default=0)
-
-    def __str__(self):
-        return f' {[self.field for i in Gathering.field_names]}'
+    gathering_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
 
 
-class Refining(Player):
+
+class Refining(models.Model):
     stone_cutting = models.IntegerField(default=0)
     smelting = models.IntegerField(default=0)
     weaving = models.IntegerField(default=0)
     woodworking = models.IntegerField(default=0)
     cooking = models.IntegerField(default=0)
     tannning = models.IntegerField(default=0)
-
-    def __str__(self):
-        return f' {[self.field for i in Refining.field_names]}'
+    refining_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
 
 
-class Crafting(Player):
+class Crafting(models.Model):
     arcana = models.IntegerField(default=0)
     armoring = models.IntegerField(default=0)
     cooking = models.IntegerField(default=0)
@@ -115,9 +111,7 @@ class Crafting(Player):
     furnishing = models.IntegerField(default=0)
     jewel_crafting = models.IntegerField(default=0)
     weapon_smithing = models.IntegerField(default=0)
-
-    def __str__(self):
-        return f' {[self.field for i in Crafting.field_names]}'
+    crafting_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
 
 
 class Territory(models.Model):
@@ -145,27 +139,29 @@ class Territory(models.Model):
         (WEAVERS, 'Weavers Fen'),
         (WINDSWARD, 'Windsward'),
     ]
-    territory_name = models.CharField(max_length=255, choices=TERRITORY_CHOICES, unique=True)
-    controlling_company = Factions.FACTION_CHOICES
+    territory_name = models.CharField(max_length=255, choices=TERRITORY_CHOICES,  unique=True, primary_key=True)
+    controlling_company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f' territory: {self.territory_name}, company: {self.controlling_company}'
+        return f' {self.territory_name}, {self.controlling_company}'
 
 
-class Taxes(Territory):
+class Taxes(models.Model):
+    tax_record_id = models.BigAutoField(primary_key=True)
+    tax_territory = models.ForeignKey(Territory, on_delete=models.DO_NOTHING)
     housing_tax = models.FloatField(default=5.0)
     trading_tax = models.FloatField(default=3.0)
     refining_tax = models.FloatField(default=1.0)
     crafting_tax = models.FloatField(default=1.0)
-    controlling_company = Territory.controlling_company
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.housing_tax}, {self.trading_tax}, {self.refining_tax}, {self.crafting_tax}, ' \
-               f'{self.controlling_company}'
+        return f'{self.housing_tax}, {self.trading_tax}, {self.refining_tax}, {self.crafting_tax}'
 
 
-class Income(Territory):
+class Income(models.Model):
+    income_record_id = models.BigAutoField(primary_key=True)
+    income_territory = models.ForeignKey(Territory, on_delete=models.DO_NOTHING)
     housing_income = models.FloatField(default=0.0)
     trading_income = models.FloatField(default=0.0)
     refining_income = models.FloatField(default=0.0)
@@ -174,11 +170,10 @@ class Income(Territory):
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f' {self.housing_income}, {self.trading_income}, {self.refining_income}, {self.crafting_income}, ' \
-               f'{self.controlling_company} '
+        return f' {self.housing_income}, {self.trading_income}, {self.refining_income}, {self.crafting_income}'
 
 
-class CraftingTiers(models.Model):
+class CraftingTier(models.Model):
     TIER_1 = 'T1'
     TIER_2 = 'T2'
     TIER_3 = 'T3'
@@ -196,29 +191,33 @@ class CraftingTiers(models.Model):
     tiers = models.CharField(max_length=2, choices=TIER_CHOICES, default=TIER_1)
 
 
-class SettlementUpgrades(Territory):
+class SettlementUpgrades(models.Model):
 
-    loom = CraftingTiers.tiers
-    smelter = CraftingTiers.tiers
-    stone_cutting_table = CraftingTiers.tiers
-    tannery = CraftingTiers.tiers
-    woodshop = CraftingTiers.tiers
-    arcane_repository = CraftingTiers.tiers
-    forge = CraftingTiers.tiers
-    kitchen = CraftingTiers.tiers
-    outfitters = CraftingTiers.tiers
-    workshop = CraftingTiers.tiers
+    settlement_upgrade_id = models.BigAutoField(primary_key=True, default='1')
+    loom = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    smelter = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    stone_cutting_table = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    tannery = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    woodshop = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    arcane_repository = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    forge = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    kitchen = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    outfitters = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    workshop = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    current_territory = models.ForeignKey(Territory, on_delete=models.DO_NOTHING, default="")
     last_updated = models.DateTimeField(auto_now=True)
 
 
-class FortUpgrades(Territory):
+class FortUpgrades(models.Model):
 
-    ballista = CraftingTiers.tiers
-    burning_oil_vat = CraftingTiers.tiers
-    emplacement_points = CraftingTiers.tiers
-    explosives = CraftingTiers.tiers
-    gates = CraftingTiers.tiers
-    repeaters = CraftingTiers.tiers
-    warhorns = CraftingTiers.tiers
+    fort_upgrade_id = models.BigAutoField(primary_key=True)
+    ballista = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    burning_oil_vat = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    emplacement_points = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    explosives = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    gates = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    repeaters = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    warhorns = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
+    current_territory = models.ForeignKey(Territory, on_delete=models.DO_NOTHING, default="")
     last_updated = models.DateTimeField(auto_now=True)
 

@@ -3,12 +3,13 @@
     <h4 class="player-info expertise"> One-handed </h4>
 
     <div class="player-info expertise input-group " id="divExpertise">
+        {{ exp.exp_sword }}
         <div class="player-info expertise-level input-group row-cols-4" id="divOneHanded">
             <span class="player-info expertise input-group-text col-1" id="lblSwordExpertise"> Sword: </span>
-            <input type="text" class="player-info expertise col-1" id="txtSwordExpertise" placeholder="500">
+            <input type="text" class="player-info expertise col-1" id="txtSwordExpertise" value="{{ exp.exp_sword }}">
 
             <span class="player-info expertise input-group-text col-1" id="lblShieldExpertise"> Shield: </span>
-            <input type="text" class="player-info expertise col-1" id="txtShieldExpertise" placeholder="500">
+            <input type="text" class="player-info expertise col-1" id="txtShieldExpertise" placeholder="{{ exp.exp_shield }}">
 
             <span class="player-info expertise input-group-text col-1" id="lblRapierExpertise"> Rapier: </span>
             <input type="text" class="player-info expertise col-1" id="txtRapierExpertise" placeholder="500">
