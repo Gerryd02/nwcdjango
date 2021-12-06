@@ -1,28 +1,74 @@
 {% extends 'shared/_layout.html' %}
 
 {% block main-content %}
-    <form action="post" class="player-info">
-    <div class="player">
-        <div class="section">
+    <form action="post" class="player-info mx-auto">
+        <div class="input-group player-info">
             {% include 'form_templates/player_templates/player.html' %}
         </div>
 
-        <div class="section">
-            {% include 'form_templates/player_templates/weapon_level.html' %}
-        </div>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        Expertise (Watermark)
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        <div class="row player-info">
+                            {% include 'form_templates/player_templates/expertise.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="section">
-            {% include 'form_templates/player_templates/gathering.html' %}
-        </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                        Gathering & Refining
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                    <div class="accordion-body">
+                        <div class="row">
+                            {% include 'form_templates/player_templates/gathering_refining.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="section">
-            {% include 'form_templates/player_templates/refining.html' %}
-        </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                        Crafting
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                    <div class="accordion-body">
+                        <div class="row player-info">
+                            {% include 'form_templates/player_templates/crafting.html' %}
+                        </div>
 
-        <div class="section">
-            {% include 'form_templates/player_templates/crafting.html' %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                        Weapon Levels
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                    <div class="accordion-body">
+                        <div class="input-group player-info">
+                            {% include 'form_templates/player_templates/weapon_level.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        <hr>
         <button class="player-info">Save</button>
     </form>
 {% endblock %}

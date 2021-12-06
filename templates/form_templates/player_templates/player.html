@@ -2,12 +2,12 @@
 
 {% block player %}
 
-    <div class="player-info">
-        <label for="txtPlayerName" class="player-info player" id="lblPlayerName">Player Name:</label>
-        <input type="text" name="txtPlayerName" id="txtPlayerName" class="player-info player">
+    <div class="player-info player input-group row-cols-2">
+        <span class="player-info player input-group-text col-2" id="lblPlayerName"> Player Name: </span>
+        <input type="text" name="txtPlayerName" id="txtPlayerName" class="player-info player col-5">
 
-        <label for="txtPlayerLevel" class="player-info player" id="lblPlayerLevel">Level:</label>
-        <input type="text" name="txtPlayerLevel" id="txtPlayerLevel" class="player-info player">
+        <span class="player-info player input-group-text col-1" id="lblPlayerLevel"> Level: </span>
+        <input type="text" name="txtPlayerLevel" id="txtPlayerLevel" class="player-info player col-1">
     </div>
 
 {% endblock %}

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from views import views
+from nwcs import views
 
 urlpatterns = [
     path('', views.IndexView.as_view()),

@@ -1,62 +1,64 @@
-
 {% block weapon_level %}
-    <div class="section-heading">
-        <h2 class="player-info weapon-levels">Weapon Levels</h2>
+    <h4 class="player-info weapon-levels col"> One-handed </h4>
+
+    <div class="player-info weapon-levels input-group row-cols-4" id="divOneHanded">
+        <span class="player-info weapon-levels input-group-text col-1" id="lblSwordLevel"> Sword: </span>
+        <input type="text" class="player-info weapon-levels col-1" id="txtSwordLevel">
+
+
+        <span class="player-info weapon-levels input-group-text col-1" id="lblShieldLevel"> Shield: </span>
+        <input type="text" class="player-info weapon-levels col-1" id="txtShieldLevel">
+
+
+        <span class="player-info weapon-levels input-group-text col-1" id="lblRapierLevel"> Rapier: </span>
+        <input type="text" class="player-info weapon-levels col-1" id="txtRapierLevel">
+
+
+        <span class="player-info weapon-levels input-group-text col-1" id="lblHatchetLevel"> Hatchet: </span>
+        <input type="text" class="player-info weapon-levels col-1" id="txtHatchetLevel">
     </div>
-    <br>
-    <div class="weapons">
-            <div class="player-info weapon-levels" id="divPlayerWeapons">
-                <div class="player-info weapon-levels" id="divOneHandedLevels">
-                    <label for="txtSwordLevel" class="player-info weapon-levels" id="lblSwordLevel">Sword: </label>
-                    <input type="text" class="player-info weapon-levels" id="txtSwordLevel">
-
-                    <label for="txtShieldLevel" class="player-info weapon-levels" id="lblShieldLevel">Shield: </label>
-                    <input type="text" class="player-info weapon-levels" id="txtShieldLevel">
-
-                    <label for="txtRapierLevel" class="player-info weapon-levels" id="lblRapierLevel">Rapier: </label>
-                    <input type="text" class="player-info weapon-levels" id="txtRapierLevel">
-
-                    <label for="txtHatchetLevel" class="player-info weapon-levels" id="lblHatchetLevel">Hatchet: </label>
-                    <input type="text" class="player-info weapon-levels" id="txtHatchetLevel">
-                </div>
-
-                <div class="player-info weapon-levels" id="divTwoHandedLevels">
-                    <label for="txtGreatAxe" class="player-info weapon-levels" id="lbl">Great Axe: </label>
-                    <input type="text" name="txtGreatAxeLevel" id="txtGreatAxeLevel" class="player-info weapon-levels">
-
-                    <label for="txtWarHammerLevel" class="player-info weapon-levels" id="lbl">WarHammer: </label>
-                    <input type="text" name="txtWarHammerLevel" id="txtWarHammerLevel" class="player-info weapon-levels">
-
-                    <label for="txtSpearLevel" class="player-info weapon-levels" id="lbl">Spear: </label>
-                    <input type="text" name="txtSpearLevel" id="txtSpearLevel" class="player-info weapon-levels">
-
-                </div>
-
-                <div class="player-info weapon-levels" id="divRangedLevels">
-
-                    <label for="txtBowLevel" class="player-info weapon-levels" id="lbl">Bow: </label>
-                    <input type="text" name="txtBowLevel" id="txtBowLevel" class="player-info weapon-levels">
-
-                    <label for="txtMusketLevel" class="player-info weapon-levels" id="lbl">Musket: </label>
-                    <input type="text" name="txtMusketLevel" id="txtMusketLevel" class="player-info weapon-levels">
-
-                </div>
-
-                <div class="player-info weapon-levels" id="divMagicLevels">
-
-                    <label for="txtIceGauntletLevel" class="player-info weapon-levels" id="lblIceGauntletLevel">Ice Gauntlet: </label>
-                    <input type="text" name="txtIceGauntletLevel" id="txtIceGauntletLevel" class="player-info weapon-levels">
-
-                    <label for="txtVoidGauntletLevel" class="player-info weapon-levels" id="lblVoidGauntletLevel">Void Gauntlet: </label>
-                    <input type="text" name="txtVoidGauntletLevel" id="txtVoidGauntletLevel" class="player-info weapon-levels">
-
-                    <label for="txtFireStaffLevel" class="player-info weapon-levels" id="lblFireStaffLevel">Fire Staff: </label>
-                    <input type="text" name="txtFireStaffLevel" id="txtFireStaffLevel" class="player-info weapon-levels">
-
-                    <label for="txtLifeStaffLevel" class="player-info weapon-levels" id="lblLifeStaffLevel">Life Staff: </label>
-                    <input type="text" name="txtLifeStaffLevel" id="txtLifeStaffLevel" class="player-info weapon-levels">
-
-                </div>
-            </div>
+    <div class="">
+    <h4 class="player-info weapon-levels"> Two-handed </h4>
     </div>
-    {% endblock %}
+    <div class="player-info weapon-levels input-group row-cols-3" id="divTwoHanded">
+        <span class="player-info weapon-levels input-group-text col-1" id="lbl"> Great Axe: </span>
+        <input type="text" name="txtGreatAxeLevel" id="txtGreatAxeLevel" class="player-info weapon-levels col-1">
+
+        <span class="player-info weapon-levels input-group-text col-2" id="lbl"> War Hammer: </span>
+        <input type="text" name="txtWarHammerLevel" id="txtWarHammerLevel" class="player-info weapon-levels col-1">
+
+        <span class="player-info weapon-levels input-group-text col-1" id="lbl"> Spear: </span>
+        <input type="text" name="txtSpearLevel" id="txtSpearLevel" class="player-info weapon-levels col-1">
+
+    </div>
+
+    <div class="">
+        <h4 class="player-info weapon-levels"> Ranged </h4>
+    </div>
+    <div class="player-info weapon-levels input-group" id="divRanged">
+        <span class="player-info weapon-levels input-group-text" id="lbl"> Bow: </span>
+        <input type="text" name="txtBowLevel" id="txtBowLevel" class="player-info weapon-levels">
+
+        <span class="player-info weapon-levels input-group-text" id="lbl"> Musket: </span>
+        <input type="text" name="txtMusketLevel" id="txtMusketLevel" class="player-info weapon-levels">
+    </div>
+    <div class="">
+        <h4 class="player-info weapon-levels"> Magic </h4>
+    </div>
+    <div class="player-info weapon-levels input-group row-cols-4" id="divMagic">
+
+        <span class="player-info weapon-levels input-group-text cols-2" id="lblIceGauntletLevel"> Ice Gauntlet: </span>
+        <input type="text" name="txtIceGauntletLevel" id="txtIceGauntletLevel" class="player-info weapon-levels cols-1">
+
+        <span class="player-info weapon-levels input-group-text cols-2" id="lblVoidGauntletLevel"> Void Gauntlet: </span>
+        <input type="text" name="txtVoidGauntletLevel" id="txtVoidGauntletLevel" class="player-info weapon-levels cols-1">
+
+        <span class="player-info weapon-levels input-group-text cols-1" id="lblFireStaffLevel"> Fire Staff: </span>
+        <input type="text" name="txtFireStaffLevel" id="txtFireStaffLevel" class="player-info weapon-levels cols-1">
+
+        <span class="player-info weapon-levels input-group-text cols-1" id="lblLifeStaffLevel"> Life Staff: </span>
+        <input type="text" name="txtLifeStaffLevel" id="txtLifeStaffLevel" class="player-info weapon-levels cols-1">
+
+    </div>
+
+{% endblock %}
