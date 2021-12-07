@@ -1,32 +1,38 @@
 {% extends 'shared/_layout.html' %}
 
 {% block main-content %}
-
+    <h2 class="heading"> The Ascending Phoenix </h2>
     <table class="table table-light">
         <thead>
         <tr>
-            <th scope="col"> ID </th>
-            <th scope="col"> Player Name </th>
-            <th scope="col"> Level </th>
-            <th scope="col"> Company </th>
-            <th scope="col"> Primary Role </th>
-            <th scope="col"> Secondary Role</th>
-            <th scope="col"> Avg. Watermark </th>
+            <th scope="col">#</th>
+            <th scope="col">Player Name</th>
+            <th scope="col">Level</th>
+            <th scope="col">Primary Role</th>
+            <th scope="col">Weapon Slot 1</th>
+            <th scope="col">Weapon Slot 2</th>
+            <th scope="col">Secondary Role</th>
+            <th scope="col">Weapon Slot 1</th>
+            <th scope="col">Weapon Slot 2</th>
+            <th scope="col">Avg. Expertise</th>
         </tr>
         </thead>
         <tbody>
-         {% for player in roster  %}
-             <tr>
-                 <th scope="row">{{ forloop.counter }}</th>
-                 <td>{{ player.player_name }}</td>
-                 <td>{{ player.player_level }}</td>
-                 <td> The Ascending Phoenix </td>
-                 <td>{{ player.player_primary_role }}</td>
-                 <td>{{ player.player_secondary_role }}</td>
-                 <td></td>
-             </tr>
-         {% endfor %}
 
+        {% for player in roster %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td class="d-table-cell"><a href="player/{{ player.player_name }}">{{ player.player_name }}</a></td>
+                <td class="d-table-cell">{{ player.player_level }}</td>
+                <td class="d-table-cell">{{ player.player_primary_role }}</td>
+                <td class="d-table-cell">{{ player.player_pr_weapon_1 }}</td>
+                <td class="d-table-cell">{{ player.player_pr_weapon_2 }}</td>
+                <td class="d-table-cell">{{ player.player_secondary_role }}</td>
+                <td class="d-table-cell">{{ player.player_sr_weapon_1 }}</td>
+                <td class="d-table-cell">{{ player.player_sr_weapon_2 }}</td>
+                <td class="d-table-cell"> avg. exp</td>
+            </tr>
+        {% endfor %}
 
         </tbody>
     </table>

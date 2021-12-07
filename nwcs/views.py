@@ -34,6 +34,7 @@ class Company(View):
 
 
 class Territories(View):
+    territory_list = m.Territory.objects
 
     def get(self, request, *args, **kwargs):
         return render(request, "territories.html")

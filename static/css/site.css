@@ -1,6 +1,6 @@
 body {
     background-color: #212121;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 100px;
 }
 
@@ -17,6 +17,11 @@ h2 {
     color: black;
 }
 
+h2.heading{
+    text-align: center;
+    color: rgba(183, 0, 255, 0.71);
+}
+
 h3 {
     color: white;
 }
@@ -26,6 +31,7 @@ h4 {
     text-decoration: underline;
 }
 
+
 hr {
     color:white;
 }
@@ -34,9 +40,39 @@ label {
     background-color: #212121;
     padding: 5px;
 }
+th {
+    font-size: 14px;
+}
 
+td {
+    font-size: 14px;
+}
+
+.card {
+    width: 8rem;
+    height: 8rem;
+    text-align:center;
+}
+
+.col-sm-3 {
+    width: 9rem;
+    height: 9rem;
+}
+
+input.card-body {
+    width: 7.75rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.card-header{
+    font-size: .91rem;
+    font-weight: bold;
+    height: 3.25rem;
+}
 .main-heading {
     text-align: center;
+
 }
 
 .input-group-text {

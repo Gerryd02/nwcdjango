@@ -1,93 +1,113 @@
 {% block weapon_expertise %}
 
-    <h4 class="player-info expertise"> One-handed </h4>
-
-    <div class="player-info expertise input-group " id="divExpertise">
-        <div class="player-info expertise-level input-group row-cols-4" id="divOneHanded">
-            <span class="player-info expertise input-group-text col-1" id="lblSwordExpertise"> Sword: </span>
-            <input type="text" class="player-info expertise col-1" id="txtSwordExpertise" value="{{ exp.exp_sword}}">
-
-            <span class="player-info expertise input-group-text col-1" id="lblShieldExpertise"> Shield: </span>
-            <input type="text" class="player-info expertise col-1" id="txtShieldExpertise" value="{{ exp.exp_shield }}">
-
-            <span class="player-info expertise input-group-text col-1" id="lblRapierExpertise"> Rapier: </span>
-            <input type="text" class="player-info expertise col-1" id="txtRapierExpertise" value="{{ exp.exp_rapier }}">
-
-            <span class="player-info expertise input-group-text col-1" id="lblHatchetExpertise"> Hatchet: </span>
-            <input type="text" class="player-info expertise col-1" id="txtHatchetExpertise" value="{{ exp.exp_hatchet }}">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <label for="txtExpSword" class="card-header">Sword</label>
+                <input type="text" name="txtExpSword" id="txtExpSword" class="player-info crafting card-body"
+                       value="{{ exp.exp_sword }}">
+            </div>
         </div>
-
-        <h4 class="player-info expertise"> Two-handed </h4>
-        <div class="player-info expertise-level input-group row-cols-3" id="divOneHanded">
-            <span class="player-info expertise input-group-text col-1" id="lbl"> Great Axe: </span>
-            <input type="text" name="txtGreatAxeExpertise" id="txtGreatAxeExpertise" class="player-info expertise col-1" value="{{ exp.exp_great_axe }}">
-
-            <span class="player-info expertise input-group-text col-2" id="lbl"> War Hammer: </span>
-            <input type="text" name="txtWarHammerExpertise" id="txtWarHammerExpertise" class="player-info expertise col-2" value="{{ exp.exp_war_hammer }}">
-
-            <span class="player-info expertise input-group-text col-1" id="lbl"> Spear: </span>
-            <input type="text" name="txtSpearExpertise" id="txtSpearExpertise" class="player-info expertise col-1" value="{{ exp.exp_spear }}">
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpShield" class="card-header">Shield</label>
+                <input type="text" name="txtExpShield" id="txtExpShield" class="player-info expertise card-body" value="{{ exp.exp_shield }}">
+            </div>
         </div>
-
-        <h4 class="player-info expertise"> Ranged </h4>
-        <div class="player-info expertise-level input-group row-cols-2" id="divOneHanded">
-            <span class="player-info expertise input-group-text col-1" id="lbl"> Bow: </span>
-            <input type="text" name="txtBowExpertise" id="txtBowExpertise" class="player-info expertise col-1" value="{{ exp.exp_bow }}">
-
-            <span class="player-info expertise input-group-text col-1" id="lbl"> Musket: </span>
-            <input type="text" name="txtMusketExpertise" id="txtMusketExpertise" class="player-info expertise col-1" value="{{ exp.exp_musket }}">
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpRapier" class="card-header">Rapier</label>
+                <input type="text" name="txtExpRapier" id="txtExpRapier" class="player-info expertise card-body" value="{{ exp.exp_rapier }}">
+            </div>
         </div>
-
-        <h4 class="player-info expertise"> Magic </h4>
-        <div class="player-info expertise-level input-group row-cols-4" id="divOneHanded">
-            <span class="player-info expertise input-group-text col-2" id="lblIceGauntletExpertise"> Ice Gauntlet: </span>
-            <input type="text" name="txtIceGauntletExpertise" id="txtIceGauntletExpertise"
-                   class="player-info expertise col-1" value="{{ exp.exp_ice_gauntlet }}">
-
-            <span class="player-info expertise input-group-text col-2" id="lblVoidGauntletExpertise"> Void Gauntlet: </span>
-            <input type="text" name="txtVoidGauntletExpertise" id="txtVoidGauntletExpertise"
-                   class="player-info expertise col-1" value="{{ exp.exp_void_gauntlet }}">
-
-            <span class="player-info expertise input-group-text col-1" id="lblFireStaffExpertise"> Fire Staff: </span>
-            <input type="text" name="txtFireStaffExpertise" id="txtFireStaffExpertise" class="player-info expertise col-1" value="{{ exp.exp_fire_staff }}">
-
-            <span class="player-info expertise input-group-text col-1" id="lblLifeStaffExpertise"> Life Staff: </span>
-            <input type="text" name="txtLifeStaffExpertise" id="txtLifeStaffExpertise" class="player-info expertise col-1" value="{{ exp.exp_life_staff }}">
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpHatchet" class="card-header">Hatchet</label>
+                <input type="text" name="txtExpHatchet" id="txtExpHatchet" class="player-info expertise card-body" value="{{ exp.exp_hatchet }}">
+            </div>
         </div>
-
-    </div>
-
-    <br>
-
-    <h4 class="player-info expertise"> Armor </h4>
-    <div class="player-info expertise input-group" id="divExpertise">
-
-        <span class="player-info expertise input-group-text" id="lblHeadExpertise"> Head: </span>
-        <input type="text" class="player-info expertise" id="txtHeadExpertise" value="{{ exp.exp_head }}">
-
-        <span class="player-info expertise input-group-text" id="lblChestExpertise"> Chest: </span>
-        <input type="text" class="player-info expertise" id="txtChestExpertise" value="{{ exp.exp_chest }}">
-
-        <span class="player-info expertise input-group-text" id="lblHandsExpertise"> Hands: </span>
-        <input type="text" class="player-info expertise" id="txtHandsExpertise" value="{{ exp.exp_hands }}">
-
-        <span class="player-info expertise input-group-text" id="lblLegs"> Legs: </span>
-        <input type="text" name="txtLegsExpertise" id="txtLegsExpertise" class="player-info expertise" value="{{ exp.exp_legs }}">
-
-        <span class="player-info expertise input-group-text" id="lblFeet"> Feet: </span>
-        <input type="text" name="txtFeetExpertise" id="txtFeetExpertise" class="player-info expertise" value="{{ exp.exp_feet }}">
-    </div>
-    <h4 class="player-info expertise"> Trinkets </h4>
-    <div class="player-info expertise input-group" id="divExpertise">
-
-        <span class="player-info expertise input-group-text" id="lblAmulet"> Amulet: </span>
-        <input type="text" name="txtAmuletExpertise" id="txtAmuletExpertise" class="player-info expertise" value="{{ exp.exp_amulet }}">
-
-        <span class="player-info expertise input-group-text" id="lblRing"> Ring: </span>
-        <input type="text" name="txtRingExpertise" id="txtRingExpertise" class="player-info expertise" value="{{ exp.exp_ring }}">
-
-        <span class="player-info expertise input-group-text" id="lblEarring"> Earring: </span>
-        <input type="text" name="txtEarringExpertise" id="txtEarringExpertise" class="player-info expertise" value="{{ exp.exp_earring }}">
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpGreatAxe" class="card-header">Great Axe</label>
+                <input type="text" name="txtExpGreatAxe" id="txtExpGreatAxe" class="player-info expertise card-body" value="{{ exp.exp_great_axe }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpWarHammer" class="card-header">War Hammer</label>
+                <input type="text" name="txtExpWarHammer" id="txtExpWarHammer" class="player-info expertise card-body" value="{{ exp.exp_war_hammer }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpSpear" class="card-header">Spear</label>
+                <input type="text" name="txtExpSpear" id="txtExpSpear" class="player-info expertise card-body" value="{{ exp.exp_spear }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpBow" class="card-header">Bow</label>
+                <input type="text" name="txtExpBow" id="txtExpBow" class="player-info expertise card-body" value="{{ exp.exp_bow }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpMusket" class="card-header">Musket</label>
+                <input type="text" name="txtExpMusket" id="txtExpMusket" class="player-info expertise card-body" value="{{ exp.exp_musket }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpLifeStaff" class="card-header">Life Staff</label>
+                <input type="text" name="txtExpLifeStaff" id="txtExpLifeStaff" class="player-info expertise card-body" value="{{ exp.exp_life_staff }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpFireStaff" class="card-header">Fire Staff</label>
+                <input type="text" name="txtExpFireStaff" id="txtExpFireStaff" class="player-info expertise card-body" value="{{ exp.exp_fire_staff }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpIceGauntlet" class="card-header">Ice Gauntlet</label>
+                <input type="text" name="txtExpIceGauntlet" id="txtExpIceGauntlet" class="player-info expertise card-body" value="{{ exp.exp_ice_gauntlet }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpVoideGauntlet" class="card-header">Void Gauntlet</label>
+                <input type="text" name="txtExpVoideGauntlet" id="txtExpVoideGauntlet" class="player-info expertise card-body" value="{{ exp.exp_void_gauntlet }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpHead" class="card-header">Head</label>
+                <input type="text" name="txtExpHead" id="txtExpHead" class="player-info expertise card-body" value="{{ exp.exp_head }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpChest" class="card-header">Chest</label>
+                <input type="text" name="txtExpChest" id="txtExpChest" class="player-info expertise card-body" value="{{ exp.exp_chest }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpHands" class="card-header">Hands</label>
+                <input type="text" name="txtExpHands" id="txtExpHands" class="player-info expertise card-body" value="{{ exp.exp_hands }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpLegs" class="card-header">Legs</label>
+                <input type="text" name="txtExpLegs" id="txtExpLegs" class="player-info expertise card-body" value="{{ exp.exp_legs }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpFeet" class="card-header">Feet</label>
+                <input type="text" name="txtExpFeet" id="txtExpFeet" class="player-info expertise card-body" value="{{ exp.exp_feet }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpAmulet" class="card-header">Amulet</label>
+                <input type="text" name="txtExpAmulet" id="txtExpAmulet" class="player-info expertise card-body" value="{{ exp.exp_amulet }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpRing" class="card-header">Ring</label>
+                <input type="text" name="txtExpRing" id="txtExpRing" class="player-info expertise card-body" value="{{ exp.exp_ring }}">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card"><label for="txtExpEarring" class="card-header">Earring</label>
+                <input type="text" name="txtExpEarring" id="txtExpEarring" class="player-info expertise card-body" value="{{ exp.exp_earring }}">
+            </div>
+        </div>
 
 
     </div>

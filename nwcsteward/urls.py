@@ -21,7 +21,7 @@ from nwcs import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view()),
-    path('player_card.html', views.PlayerCard.as_view(), name="player_card"),
+    path('player/<str:player_name>', views.PlayerCard.as_view(), name="player_card"),
     path('company.html', views.Company.as_view(), name="company"),
     path('territories.html', views.Territories.as_view(), name="territories")
 ]

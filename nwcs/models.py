@@ -35,14 +35,21 @@ class Player(models.Model):
     HYBRID = 'Hybrid'
     ROLES = [(HEALER, 'Healer'), (TANK, 'Tank'), (SUPPORT, 'Support'), (RANGED, 'Ranged-DPS'), (MELEE, 'Melee-DPS'),
              (HYBRID, 'Hybrid')]
-
+    WEAPONS = [('Sword & Shield', 'Sword & Shield'), ('Rapier', 'Rapier'), ('Hatchet', 'Hatchet'),
+               ('Great Axe', 'Great Axe'), ('War Hammer', 'War Hammer'), ('Spear', 'Spear'), ('Bow', 'Bow'),
+               ('Musket', 'Musket'), ('Life Staff', 'Life Staff'),('Fire Staff', 'Fire Staff'),
+               ('Ice Gauntlet', 'Ice Gauntlet'), ('Void Gauntlet', 'Void Gauntlet')]
     player_id = models.BigAutoField(primary_key=True)
     player_name = models.CharField(max_length=255, null=False, unique=True)
     player_level = models.IntegerField(null=False, default=1)
-    player_company_id = models.ForeignKey(Company, on_delete=SET(1))
+    player_company_id = models.ForeignKey(Company, on_delete=SET(""))
     player_faction = models.CharField(max_length=3, choices=Faction.FACTION_CHOICES, default=Faction.UNFACTIONED)
     player_primary_role = models.CharField(max_length=255, choices=ROLES, default="")
+    player_pr_weapon_1 = models.CharField(max_length=255, choices=WEAPONS, default="")
+    player_pr_weapon_2 = models.CharField(max_length=255, choices=WEAPONS, default="")
     player_secondary_role = models.CharField(max_length=255, choices=ROLES, default="")
+    player_sr_weapon_1 = models.CharField(max_length=255, choices=WEAPONS, default="")
+    player_sr_weapon_2 = models.CharField(max_length=255, choices=WEAPONS, default="")
 
     def __str__(self):
         return f' id: {self.player_id}, player_name: {self.player_name}, player_level {self.player_level}, ' \
@@ -84,7 +91,6 @@ class Expertise(models.Model):
 
 class Weapon(models.Model):
     level_sword = models.IntegerField(default=1)
-    level_shield = models.IntegerField(default=1)
     level_rapier = models.IntegerField(default=1)
     level_hatchet = models.IntegerField(default=1)
     level_great_axe = models.IntegerField(default=1)
@@ -113,8 +119,7 @@ class Refining(models.Model):
     smelting = models.IntegerField(default=0)
     weaving = models.IntegerField(default=0)
     woodworking = models.IntegerField(default=0)
-    cooking = models.IntegerField(default=0)
-    tannning = models.IntegerField(default=0)
+    tanning = models.IntegerField(default=0)
     refining_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
 
 

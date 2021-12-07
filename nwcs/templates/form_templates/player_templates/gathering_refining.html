@@ -1,39 +1,68 @@
 
 {% block gathering %}
 
-        <div class="player-info gathering input-group" id="DivGathering">
-            <span class="player-info gathering input-group-text" id="lblMining">Mining:</span>
-            <input type="text" name="txtMining" id="txtMining" class="player-info gathering" value="{{ g.mining }}">
-        
-            <span class="player-info gathering input-group-text" id="lblHarvesting">Harvesting:</span>
-            <input type="text" name="txtHarvesting" id="txtHarvesting" class="player-info gathering" value="{{ g.harvesting }}">
-
-            <span class="player-info gathering input-group-text" id="lblLogging">Logging:</span>
-            <input type="text" name="txtLogging" id="txtLogging" class="player-info gathering" value="{{ g.logging }}">
-
-            <span class="player-info gathering input-group-text" id="lblSkinning">Skinning:</span>
-            <input type="text" name="txtSkinning" id="txtSkinning" class="player-info gathering" value="{{ g.skinning }}">
-
-            <span class="player-info gathering input-group-text" id="lblFishing">Fishing:</span>
-            <input type="text" name="txtFishing" id="txtFishing" class="player-info gathering" value="{{ g.fishing }}">
+    <div class="row">
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Mining</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ g.mining }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Harvesting</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ g.harvesting }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Logging</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ g.logging }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Skinning</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ g.skinning }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Fishing</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ g.fishing }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Stone Cutting</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ r.stone_cutting }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Smelting</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ r.smelting }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Weaving</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ r.weaving }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering" style="font-size:.89rem">Woodworking</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ r.woodworking }}">
+            </div>
+        </div>
+        <div class="col-sm-3 player-info gathering">
+            <div class="card player-info gathering">
+                <label for="" class="card-header player-info gathering">Tanning</label>
+                <input type="text" name="" id="" class="card-body player-info gathering" value="{{ r.tanning }}">
+            </div>
         </div>
 
-    <div class="player-info refining input-group" id="divRefining">
-
-        <span class="player-info refining input-group-text" id="lblStoneCutting">Stone Cutting:</span>
-        <input type="text" name="txtStoneCutting" id="txtStoneCutting" class="player-info refining" value="{{ r.stone_cutting }}">
-
-        <span class="player-info refining input-group-text" id="lblSmelting">Smelting:</span>
-        <input type="text" name="txtSmelting" id="txtSmelting" class="player-info refining" value="{{ r.smelting }}">
-
-        <span class="player-info refining input-group-text" id="lblWeaving">Weaving:</span>
-        <input type="text" name="txt" id="txtWeaving" class="player-info refining" value="{{ r.weaving }}">
-
-        <span class="player-info refining input-group-text" id="lblWoodworking">Woodworking:</span>
-        <input type="text" name="txtWoodworking" id="txtWoodworking" class="player-info refining" value="{{ r.woodworking }}">
-
-        <span class="player-info refining input-group-text" id="lblTanning">Tanning:</span>
-        <input type="text" name="txtTanning" id="txtTanning" class="player-info refining" value="{{ r. }}">
     </div>
 
 

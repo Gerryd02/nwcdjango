@@ -2,9 +2,9 @@
 
 {% block main-content %}
     <form action="post" class="player-info mx-auto">
-        <div class="input-group player-info">
-            {% include 'form_templates/player_templates/player.html' %}
-        </div>
+        <h2 class="heading">
+            {{ exp.exp_player_name.player_name }} {{ exp.exp_player_name.player_level }}
+        </h2>
         {{ exp_sword }}
         <div class="accordion" id="accordionPanelsStayOpenExample">
             <div class="accordion-item">
