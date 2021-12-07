@@ -14,10 +14,14 @@ class IndexView(View):
 
 
 class PlayerCard(View):
-    expertise = m.Expertise.objects.filter(exp_player_name_id=1)
-    context = {'exp': expertise}
-    def get(self, request, *args, **kwargs):
+    expertise = m.Expertise.objects.get(exp_player_name='1')
+    gathering = m.Gathering.objects.get(gathering_player_name='1')
+    refining = m.Refining.objects.get(refining_player_name='1')
+    crafting = m.Crafting.objects.get(crafting_player_name='1')
+    weapons = m.Weapon.objects.get(weapon_player_name='1')
+    context = {'exp': expertise, 'g': gathering, 'r': refining, 'c': crafting, 'w': weapons}
 
+    def get(self, request, *args, **kwargs):
         return render(request, "player_card.html", context=self.context)
 
 

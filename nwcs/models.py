@@ -27,11 +27,22 @@ class Company(models.Model):
 
 
 class Player(models.Model):
+    HEALER = 'Healer'
+    TANK = 'Tank'
+    SUPPORT = 'Support'
+    RANGED = 'Ranged-DPS'
+    MELEE = 'Melee-DPS'
+    HYBRID = 'Hybrid'
+    ROLES = [(HEALER, 'Healer'), (TANK, 'Tank'), (SUPPORT, 'Support'), (RANGED, 'Ranged-DPS'), (MELEE, 'Melee-DPS'),
+             (HYBRID, 'Hybrid')]
+
     player_id = models.BigAutoField(primary_key=True)
     player_name = models.CharField(max_length=255, null=False, unique=True)
     player_level = models.IntegerField(null=False, default=1)
     player_company_id = models.ForeignKey(Company, on_delete=SET(1))
     player_faction = models.CharField(max_length=3, choices=Faction.FACTION_CHOICES, default=Faction.UNFACTIONED)
+    player_primary_role = models.CharField(max_length=255, choices=ROLES, default="")
+    player_secondary_role = models.CharField(max_length=255, choices=ROLES, default="")
 
     def __str__(self):
         return f' id: {self.player_id}, player_name: {self.player_name}, player_level {self.player_level}, ' \
@@ -62,6 +73,13 @@ class Expertise(models.Model):
     exp_earring = models.IntegerField(default=500)
     exp_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
 
+    def __str__(self):
+        return str([self.exp_sword, self.exp_shield, self.exp_rapier, self.exp_hatchet, self.exp_great_axe,
+                    self.exp_war_hammer, self.exp_spear,
+                    self.exp_bow, self.exp_musket, self.exp_life_staff, self.exp_fire_staff, self.exp_ice_gauntlet,
+                    self.exp_void_gauntlet,
+                    self.exp_head, self.exp_chest, self.exp_hands, self.exp_legs, self.exp_feet, self.exp_amulet,
+                    self.exp_ring, self.exp_earring, self.exp_player_name, self.exp_player_name_id])
 
 
 class Weapon(models.Model):
@@ -81,8 +99,6 @@ class Weapon(models.Model):
     weapon_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
 
 
-
-
 class Gathering(models.Model):
     mining = models.IntegerField(default=0)
     harvesting = models.IntegerField(default=0)
@@ -90,7 +106,6 @@ class Gathering(models.Model):
     skinning = models.IntegerField(default=0)
     fishing = models.IntegerField(default=0)
     gathering_player_name = models.OneToOneField(Player, on_delete=models.CASCADE, primary_key=True)
-
 
 
 class Refining(models.Model):
@@ -139,7 +154,7 @@ class Territory(models.Model):
         (WEAVERS, 'Weavers Fen'),
         (WINDSWARD, 'Windsward'),
     ]
-    territory_name = models.CharField(max_length=255, choices=TERRITORY_CHOICES,  unique=True, primary_key=True)
+    territory_name = models.CharField(max_length=255, choices=TERRITORY_CHOICES, unique=True, primary_key=True)
     controlling_company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -192,7 +207,6 @@ class CraftingTier(models.Model):
 
 
 class SettlementUpgrades(models.Model):
-
     settlement_upgrade_id = models.BigAutoField(primary_key=True, default='1')
     loom = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
     smelter = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
@@ -209,7 +223,6 @@ class SettlementUpgrades(models.Model):
 
 
 class FortUpgrades(models.Model):
-
     fort_upgrade_id = models.BigAutoField(primary_key=True)
     ballista = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
     burning_oil_vat = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
@@ -220,4 +233,3 @@ class FortUpgrades(models.Model):
     warhorns = models.CharField(max_length=2, choices=CraftingTier.TIER_CHOICES, default=CraftingTier.TIER_1)
     current_territory = models.ForeignKey(Territory, on_delete=models.DO_NOTHING, default="")
     last_updated = models.DateTimeField(auto_now=True)
-

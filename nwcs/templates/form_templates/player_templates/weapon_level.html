@@ -3,32 +3,28 @@
 
     <div class="player-info weapon-levels input-group row-cols-4" id="divOneHanded">
         <span class="player-info weapon-levels input-group-text col-1" id="lblSwordLevel"> Sword: </span>
-        <input type="text" class="player-info weapon-levels col-1" id="txtSwordLevel">
-
-
-        <span class="player-info weapon-levels input-group-text col-1" id="lblShieldLevel"> Shield: </span>
-        <input type="text" class="player-info weapon-levels col-1" id="txtShieldLevel">
+        <input type="text" class="player-info weapon-levels col-1" id="txtSwordLevel" value="{{w.level_sword}}">
 
 
         <span class="player-info weapon-levels input-group-text col-1" id="lblRapierLevel"> Rapier: </span>
-        <input type="text" class="player-info weapon-levels col-1" id="txtRapierLevel">
+        <input type="text" class="player-info weapon-levels col-1" id="txtRapierLevel" value="{{w.level_rapier}}">
 
 
         <span class="player-info weapon-levels input-group-text col-1" id="lblHatchetLevel"> Hatchet: </span>
-        <input type="text" class="player-info weapon-levels col-1" id="txtHatchetLevel">
+        <input type="text" class="player-info weapon-levels col-1" id="txtHatchetLevel" value="{{w.level_hatchet}}">
     </div>
     <div class="">
     <h4 class="player-info weapon-levels"> Two-handed </h4>
     </div>
     <div class="player-info weapon-levels input-group row-cols-3" id="divTwoHanded">
         <span class="player-info weapon-levels input-group-text col-1" id="lbl"> Great Axe: </span>
-        <input type="text" name="txtGreatAxeLevel" id="txtGreatAxeLevel" class="player-info weapon-levels col-1">
+        <input type="text" name="txtGreatAxeLevel" id="txtGreatAxeLevel" class="player-info weapon-levels col-1" value="{{w.level_great_axe}}">
 
         <span class="player-info weapon-levels input-group-text col-2" id="lbl"> War Hammer: </span>
-        <input type="text" name="txtWarHammerLevel" id="txtWarHammerLevel" class="player-info weapon-levels col-1">
+        <input type="text" name="txtWarHammerLevel" id="txtWarHammerLevel" class="player-info weapon-levels col-1" value="{{w.level_war_hammer}}">
 
         <span class="player-info weapon-levels input-group-text col-1" id="lbl"> Spear: </span>
-        <input type="text" name="txtSpearLevel" id="txtSpearLevel" class="player-info weapon-levels col-1">
+        <input type="text" name="txtSpearLevel" id="txtSpearLevel" class="player-info weapon-levels col-1" value="{{w.level_spear}}">
 
     </div>
 
@@ -37,10 +33,10 @@
     </div>
     <div class="player-info weapon-levels input-group" id="divRanged">
         <span class="player-info weapon-levels input-group-text" id="lbl"> Bow: </span>
-        <input type="text" name="txtBowLevel" id="txtBowLevel" class="player-info weapon-levels">
+        <input type="text" name="txtBowLevel" id="txtBowLevel" class="player-info weapon-levels" value="{{w.level_bow}}">
 
         <span class="player-info weapon-levels input-group-text" id="lbl"> Musket: </span>
-        <input type="text" name="txtMusketLevel" id="txtMusketLevel" class="player-info weapon-levels">
+        <input type="text" name="txtMusketLevel" id="txtMusketLevel" class="player-info weapon-levels" value="{{w.level_musket}}">
     </div>
     <div class="">
         <h4 class="player-info weapon-levels"> Magic </h4>
@@ -48,16 +44,16 @@
     <div class="player-info weapon-levels input-group row-cols-4" id="divMagic">
 
         <span class="player-info weapon-levels input-group-text cols-2" id="lblIceGauntletLevel"> Ice Gauntlet: </span>
-        <input type="text" name="txtIceGauntletLevel" id="txtIceGauntletLevel" class="player-info weapon-levels cols-1">
+        <input type="text" name="txtIceGauntletLevel" id="txtIceGauntletLevel" class="player-info weapon-levels cols-1" value="{{w.level_ice_gauntlet}}">
 
         <span class="player-info weapon-levels input-group-text cols-2" id="lblVoidGauntletLevel"> Void Gauntlet: </span>
-        <input type="text" name="txtVoidGauntletLevel" id="txtVoidGauntletLevel" class="player-info weapon-levels cols-1">
+        <input type="text" name="txtVoidGauntletLevel" id="txtVoidGauntletLevel" class="player-info weapon-levels cols-1" value="{{w.level_void_gauntlet}}">
 
         <span class="player-info weapon-levels input-group-text cols-1" id="lblFireStaffLevel"> Fire Staff: </span>
-        <input type="text" name="txtFireStaffLevel" id="txtFireStaffLevel" class="player-info weapon-levels cols-1">
+        <input type="text" name="txtFireStaffLevel" id="txtFireStaffLevel" class="player-info weapon-levels cols-1" value="{{w.level_fire_staff}}">
 
         <span class="player-info weapon-levels input-group-text cols-1" id="lblLifeStaffLevel"> Life Staff: </span>
-        <input type="text" name="txtLifeStaffLevel" id="txtLifeStaffLevel" class="player-info weapon-levels cols-1">
+        <input type="text" name="txtLifeStaffLevel" id="txtLifeStaffLevel" class="player-info weapon-levels cols-1" value="{{w.level_life_staff}}">
 
     </div>
 
