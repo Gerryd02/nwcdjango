@@ -1,7 +1,7 @@
 {% extends 'shared/_layout.html' %}
 
 {% block main-content %}
-    <form action="post" class="player-info mx-auto">
+    <form action="{% url '' %}" class="player-info mx-auto">
         <h2 class="heading">
             {{ exp.exp_player_name.player_name }} {{ exp.exp_player_name.player_level }}
         </h2>

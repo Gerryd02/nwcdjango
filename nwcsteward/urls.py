@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.IndexView.as_view()),
     path('player/<str:player_name>', views.PlayerCard.as_view(), name="player_card"),
     path('company.html', views.Company.as_view(), name="company"),
-    path('territories.html', views.Territories.as_view(), name="territories")
+    path('territories.html', views.Territories.as_view(), name="territories"),
+    path('player_add/', views.get_player_form, name="add_player")
 ]
 urlpatterns += staticfiles_urlpatterns()

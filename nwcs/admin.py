@@ -1,16 +1,16 @@
 from django.contrib import admin
-import nwcs.models as m
+from nwcs.models import company_data as c, player_data as p, territory_data as t
 # Register your models here.
 
-admin.site.register(m.Company)
-admin.site.register(m.Player)
-admin.site.register(m.Expertise)
-admin.site.register(m.Weapon)
-admin.site.register(m.Gathering)
-admin.site.register(m.Refining)
-admin.site.register(m.Crafting)
-admin.site.register(m.SettlementUpgrades)
-admin.site.register(m.FortUpgrades)
-admin.site.register(m.Taxes)
-admin.site.register(m.Income)
-admin.site.register(m.Territory)
+admin.site.register(c.Company)
+admin.site.register(p.Player)
+admin.site.register(p.Expertise)
+admin.site.register(p.Weapon)
+admin.site.register(p.Gathering)
+admin.site.register(p.Refining)
+admin.site.register(p.Crafting)
+admin.site.register(t.SettlementUpgrades)
+admin.site.register(t.FortUpgrades)
+admin.site.register(t.Taxes)
+admin.site.register(t.Income)
+admin.site.register(t.Territory)
